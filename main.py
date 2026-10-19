@@ -20,10 +20,11 @@ builder.add_edge("tools", "final_answer")
 builder.add_edge("final_answer", END)
 
 app = builder.compile()
+app.get_graph().draw_mermaid_png(output_file_path="flow.png")
 
 def main():
     print("Hello ReAct LangGraph with Function Calling")
-    res = app.invoke({"messages": [HumanMessage(content="What is the temperature in Bahawalpur, Punjab Pakistan? List it and then triple it")]})
+    res = app.invoke({"messages": [HumanMessage(content="What is the temperature in Sydney, Australia? List it and then triple it")]})
     for m in res["messages"]:
         m.pretty_print()   # shows every step, not just the last one
 
