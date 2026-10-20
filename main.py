@@ -8,6 +8,7 @@ from langchain.messages import HumanMessage
 #     question:str
 #     answer:str
 
+# This is a method which will turn the workflow to the agentic behavior
 def should_continue(state:MessagesState):
     lastMessage =  state["messages"][-1] 
     return "tools" if lastMessage.tool_calls else END
